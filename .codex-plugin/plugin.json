@@ -1,0 +1,36 @@
+{
+  "name": "ai-study-tutor",
+  "version": "0.1.0+codex.20260602044239",
+  "description": "AI-assisted study tutoring for verified image reading, course-aware explanations, review scheduling, and Anki-ready cards.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Study Tutor",
+    "shortDescription": "Course-aware tutoring with verified images",
+    "longDescription": "AI Study Tutor helps explain homework, exam questions, textbook examples, screenshots, diagrams, circuits, graphs, and formulas. It includes course references for electrical engineering, probability and statistics, and complex functions with integral transforms. It can import course PDFs, DOCX files, and notes into generated references, double-check image details before solving, teach from basics, show formulas clearly, add visual aids, preprocess hard-to-read images, create review cards, schedule spaced review, and export Anki-ready CSV cards.",
+    "developerName": "Local developer",
+    "category": "Education",
+    "capabilities": [
+      "Image analysis",
+      "Tutoring",
+      "Visual explanation",
+      "Study notes",
+      "Course import",
+      "Spaced review",
+      "Anki export"
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/screenshot.png"
+    ],
+    "defaultPrompt": [
+      "Use $ai-study-tutor to explain this problem step by step.",
+      "Use $ai-study-tutor to analyze this image question and check the details twice.",
+      "Use $ai-study-tutor to create review cards and tell me what to review today."
+    ]
+  }
+}
