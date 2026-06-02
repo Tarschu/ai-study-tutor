@@ -1,45 +1,47 @@
 # AI Study Tutor
 
-AI Study Tutor is a local Codex plugin for course-aware problem solving, verified image reading, visual explanations, review cards, spaced review, and Anki-ready export.
+[英文版](README.en.md)
+
+AI Study Tutor 是一个本地 Codex 插件，用于课程化讲题、图片信息二次复核、图文讲解、错题卡片、间隔复习和 Anki 导出。
 
 它的目标不是只给答案，而是像一个谨慎的学习助教：先读题、复核图片信息，再从基础概念讲起，最后把有价值的题整理成可复习的错题卡。
 
-![AI Study Tutor flow](assets/screenshot.png)
+![AI Study Tutor 流程图](assets/screenshot.png)
 
-## Features
+## 功能
 
-- **Verified image reading**: transcribe image-based questions, then re-check numbers, units, labels, directions, graph scales, circuit polarity, and option text before solving.
-- **Course-aware tutoring**: built-in references for:
+- **图片读题二次复核**：先转写图片题中的文字、数字、单位、标签、方向、坐标轴、电路极性和选项，再进行第二轮检查后解题。
+- **课程化讲解**：内置以下课程参考资料：
   - 电工电子学
   - 概率论与数理统计
   - 复变函数与积分变换
-- **Fixed explanation template**: restate the problem, list knowns/unknowns, teach prerequisites, solve step by step, check the result, and summarize the method.
-- **Image preprocessing**: enhance blurry or low-contrast screenshots/photos before reading.
-- **Review cards**: generate Markdown wrong-question cards and register them in a spaced review queue.
-- **Course material import**: import PDF, DOCX, TXT, and Markdown course materials into generated reference notes.
-- **Anki export**: export review cards to CSV for Anki import.
+- **固定讲题模板**：复述题目、列出已知量/未知量、补充基础知识、逐步推导、检查答案、总结方法。
+- **图片预处理**：增强模糊、低对比度截图或照片，降低看错题的概率。
+- **错题/复习卡片**：生成 Markdown 错题卡，并可登记到间隔复习队列。
+- **课程资料导入**：把 PDF、DOCX、TXT、Markdown 课程资料导入为可检索参考笔记。
+- **Anki 导出**：把复习卡片导出为 Anki 可导入的 CSV。
 
-## Installation
+## 安装
 
-This repository is a Codex plugin. For local development, place it under your local plugins directory and install it from a configured marketplace.
+这个仓库是一个 Codex 插件。用于本地开发时，把它放在本地插件目录中，并通过已配置的 marketplace 安装。
 
-If using the personal marketplace flow used by this project:
+如果使用本项目当前的 personal marketplace 流程：
 
 ```bash
 codex plugin add ai-study-tutor@migrated-claude-plugins
 ```
 
-After installing or updating the plugin, start a new Codex thread so the latest skill instructions and scripts are loaded.
+安装或更新插件后，建议新开一个 Codex 线程，让最新的 skill 指令和脚本说明被重新加载。
 
-## Usage
+## 使用示例
 
-Use the skill explicitly:
+显式调用 skill：
 
 ```text
 Use $ai-study-tutor to explain this problem step by step.
 ```
 
-Or ask naturally:
+也可以自然提问：
 
 ```text
 讲一下这道题，先帮我确认图片里有没有读错。
@@ -57,44 +59,44 @@ Or ask naturally:
 今天我应该复习哪些错题？
 ```
 
-## Learning Loop
+## 学习闭环
 
 ```mermaid
 flowchart TD
-  A["Import course materials"] --> B["Explain problem"]
-  B --> C["Verify image details twice"]
-  C --> D["Teach concepts and solve"]
-  D --> E["Create review card"]
-  E --> F["Schedule spaced review"]
-  F --> G["Export to Anki CSV"]
+  A["导入课程资料"] --> B["讲解题目"]
+  B --> C["二次复核图片信息"]
+  C --> D["补基础并推导"]
+  D --> E["生成复习卡片"]
+  E --> F["安排间隔复习"]
+  F --> G["导出 Anki CSV"]
 ```
 
-## Included Skill
+## 内置 Skill
 
-The main skill lives at:
+主 skill 位于：
 
 ```text
 skills/ai-study-tutor/SKILL.md
 ```
 
-It instructs Codex to:
+它会指导 Codex：
 
-- load the relevant course reference only when useful;
-- inspect image questions twice before solving;
-- disclose uncertain visual details instead of guessing;
-- use LaTeX for formulas;
-- include tables, Mermaid, ASCII diagrams, or generated images when helpful;
-- create review cards and spaced review records when requested.
+- 只在有帮助时加载相关课程参考资料；
+- 对图片题先读图、再复核，然后再解题；
+- 对不确定的视觉信息明确说明，而不是猜测；
+- 使用 LaTeX 表示公式；
+- 在有帮助时使用表格、Mermaid、ASCII 图或 AI 生图辅助理解；
+- 在用户需要时创建复习卡片和间隔复习记录。
 
-## Course References
+## 课程参考资料
 
-Reference files are in:
+参考资料位于：
 
 ```text
 skills/ai-study-tutor/references/
 ```
 
-Current references:
+当前包含：
 
 - `electrical-engineering.md`
 - `probability-statistics.md`
@@ -102,27 +104,27 @@ Current references:
 - `explanation-template.md`
 - `review-card-template.md`
 
-Generated course notes from imported materials are written to:
+导入课程资料后生成的笔记会写入：
 
 ```text
 skills/ai-study-tutor/references/generated/
 ```
 
-## Scripts
+## 脚本
 
-### Prepare Problem Image
+### 图片预处理
 
-Enhance a screenshot/photo for easier reading:
+增强截图或照片，便于读题：
 
 ```bash
 python3 scripts/prepare_problem_image.py ./problem.png --threshold 180
 ```
 
-Outputs grayscale, enhanced, and optional black/white copies.
+脚本会输出灰度图、增强图，以及可选的黑白图。
 
-### Import Course Material
+### 导入课程资料
 
-Import PDF, DOCX, TXT, or Markdown files into generated course references:
+导入 PDF、DOCX、TXT 或 Markdown 文件为课程参考资料：
 
 ```bash
 python3 scripts/import_course_material.py ./lecture.pdf \
@@ -130,11 +132,11 @@ python3 scripts/import_course_material.py ./lecture.pdf \
   --topic "一阶电路"
 ```
 
-PDF import requires `pypdf`; DOCX import requires `python-docx`.
+PDF 导入需要 `pypdf`；DOCX 导入需要 `python-docx`。
 
-### Make Review Card
+### 生成复习卡片
 
-Create a Markdown review card:
+创建 Markdown 复习卡片：
 
 ```bash
 python3 scripts/make_review_card.py \
@@ -150,17 +152,17 @@ python3 scripts/make_review_card.py \
   --register
 ```
 
-With `--register`, the card is also added to the spaced review queue.
+使用 `--register` 时，生成的卡片也会被加入间隔复习队列。
 
-### Study Progress
+### 学习进度
 
-List due reviews:
+查看到期复习项：
 
 ```bash
 python3 scripts/study_progress.py due
 ```
 
-Record a review result:
+记录一次复习结果：
 
 ```bash
 python3 scripts/study_progress.py review \
@@ -168,7 +170,7 @@ python3 scripts/study_progress.py review \
   --result good
 ```
 
-Review results:
+可用复习结果：
 
 - `again`
 - `hard`
@@ -176,29 +178,29 @@ Review results:
 - `easy`
 - `mastered`
 
-Progress is stored by default at:
+默认进度文件位置：
 
 ```text
 ~/.ai-study-tutor/progress.json
 ```
 
-### Export Anki CSV
+### 导出 Anki CSV
 
-Export review cards for Anki:
+导出 Anki 可导入的复习卡片：
 
 ```bash
 python3 scripts/export_anki_csv.py --output ./anki-cards.csv
 ```
 
-The CSV fields are:
+CSV 字段包括：
 
 - `Front`
 - `Back`
 - `Tags`
 
-Import the CSV in Anki using the standard file import flow.
+在 Anki 中使用标准文件导入流程即可导入。
 
-## Repository Structure
+## 仓库结构
 
 ```text
 .
@@ -222,9 +224,9 @@ Import the CSV in Anki using the standard file import flow.
         └── references/
 ```
 
-## Development
+## 开发
 
-Validate the skill:
+校验 skill：
 
 ```bash
 PYTHONPATH=/tmp/codex-skill-validate-pyyaml \
@@ -232,20 +234,20 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   skills/ai-study-tutor
 ```
 
-Validate the plugin:
+校验插件：
 
 ```bash
 PYTHONPATH=/tmp/codex-skill-validate-pyyaml \
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
-Update the local plugin cachebuster after changes:
+修改后刷新本地插件 cachebuster：
 
 ```bash
 python3 ~/.codex/skills/.system/plugin-creator/scripts/update_plugin_cachebuster.py .
 codex plugin add ai-study-tutor@migrated-claude-plugins
 ```
 
-## License
+## 许可证
 
-No license has been selected yet. Add one before publishing this repository publicly.
+暂未选择许可证。公开发布前建议补充合适的开源许可证。

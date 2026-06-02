@@ -1,9 +1,42 @@
 .DS_Store
+
+# Python caches and local tooling
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.venv/
+venv/
+env/
+
+# Local secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+token.json
+*.token
+
+# Generated study data
 review-cards/
+skills/ai-study-tutor/references/generated/
+*.anki.csv
+anki-cards.csv
+*.apkg
+
+# Generated image/output folders
 prepared/
+processed/
+outputs/
+
+# Logs and temporary files
+*.log
 *.tmp
+*.temp
+tmp/
+temp/
