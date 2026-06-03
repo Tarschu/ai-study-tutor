@@ -2,7 +2,7 @@
 
 [Chinese version](README.md)
 
-AI Study Tutor is a local Codex plugin for course-aware problem solving, verified image reading, visual explanations, review cards, spaced review, and Anki-ready export.
+AI Study Tutor is a local Codex plugin for course-aware problem solving, verified image reading, concise full-credit exam solutions, detailed teaching explanations, review cards, spaced review, and Anki-ready export.
 
 Its goal is not just to produce answers. It works like a careful study tutor: read the problem first, verify image details, teach from the underlying concepts, and turn useful problems into reusable review cards.
 
@@ -11,6 +11,7 @@ Its goal is not just to produce answers. It works like a careful study tutor: re
 ## Features
 
 - **Verified image reading**: transcribe image-based questions, then re-check numbers, units, labels, directions, graph scales, circuit polarity, and option text before solving.
+- **Two-pass solving**: first provide a concise exam-ready full-credit solution, then provide a detailed step-by-step teaching explanation.
 - **Course-aware tutoring**: built-in references for:
   - Electrical Engineering
   - Probability and Mathematical Statistics
@@ -48,7 +49,7 @@ Explain this problem and first check whether any image details may have been rea
 ```
 
 ```text
-Explain this electrical engineering problem clearly and create a review card.
+Solve this electrical engineering problem twice: exam answer first, detailed teaching explanation second.
 ```
 
 ```text
@@ -84,6 +85,7 @@ It instructs Codex to:
 - load the relevant course reference only when useful;
 - inspect image questions twice before solving;
 - disclose uncertain visual details instead of guessing;
+- solve each problem twice by default: exam answer first, teaching explanation second;
 - use LaTeX for formulas;
 - include tables, Mermaid, ASCII diagrams, or generated images when helpful;
 - create review cards and spaced review records when requested.

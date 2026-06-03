@@ -1,4 +1,4 @@
 interface:
   display_name: "AI Study Tutor"
   short_description: "Course-aware tutoring with verified image reading"
-  default_prompt: "Use $ai-study-tutor to explain this problem, double-check image details, and add useful review cards to my study plan."
+  default_prompt: "Use $ai-study-tutor to solve this problem twice: concise exam answer first, detailed teaching explanation second."

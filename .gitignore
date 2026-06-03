@@ -38,5 +38,6 @@ outputs/
 *.log
 *.tmp
 *.temp
+*.swp
 tmp/
 temp/

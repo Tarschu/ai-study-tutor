@@ -1,6 +1,6 @@
 ---
 name: ai-study-tutor
-description: AI-assisted study tutoring for explaining problems, homework, textbook examples, exam questions, and image-based exercises, with course references for 电工电子学, 概率论与数理统计, and 复变函数与积分变换. Use when the user asks Codex to讲题, explain a question, solve a problem, teach a concept through an exercise, analyze a screenshot/photo/diagram/circuit/graph/table/formula, import course materials, generate a review card, create a wrong-question note, list due reviews, export Anki cards, or provide step-by-step learning guidance. Emphasize accurate image reading with a second verification pass before solving, clear formulas, visual aids, beginner-friendly teaching, reusable study notes, and spaced review.
+description: AI-assisted study tutoring for explaining problems, homework, textbook examples, exam questions, and image-based exercises, with course references for 电工电子学, 概率论与数理统计, and 复变函数与积分变换. Use when the user asks Codex to讲题, explain a question, solve a problem, teach a concept through an exercise, analyze a screenshot/photo/diagram/circuit/graph/table/formula, import course materials, generate a review card, create a wrong-question note, list due reviews, export Anki cards, or provide step-by-step learning guidance. Emphasize accurate image reading with a second verification pass before solving, a two-pass answer format with an exam-ready concise full-credit solution followed by a detailed teaching explanation, clear formulas, visual aids, beginner-friendly teaching, reusable study notes, and spaced review.
 ---
 
 # AI Study Tutor
@@ -38,38 +38,41 @@ Use the references as teaching scaffolds, not as a substitute for solving the ac
    Inspect the enhanced output and disclose which version was used for reading.
 5. Restate the problem in the answer before solving. If any image detail is uncertain, say exactly what is uncertain and ask for a clearer crop or confirmation before relying on it.
 6. Calibrate the explanation. If the user's knowledge level is unclear and the problem is nontrivial, ask a short question about their current level; otherwise start from beginner-friendly basics and note assumptions.
-7. Solve step by step using the fixed explanation template when appropriate:
+7. Solve with a two-pass answer format by default unless the user asks for only one style:
+   - First pass: "考试版". Write a concise, full-credit solution like an exam answer. Include necessary formulas, key substitutions, units, and final result. Do not over-explain; make it clean enough to copy to a paper.
+   - Second pass: "教学版". Explain every important principle step by step. Teach the prerequisite ideas, define symbols, explain why each formula applies, and include visual aids when helpful.
+8. In the teaching pass:
    - Explain the relevant concept before using it.
    - Define every important symbol.
    - Show formulas in LaTeX.
    - Substitute values explicitly and keep units attached.
    - Explain why each step is valid, not only what calculation is performed.
-8. Include visual support whenever it helps:
+9. Include visual support whenever it helps:
    - Use generated images when the user would benefit from a clean conceptual diagram and image generation is available.
    - Use text diagrams, tables, Mermaid, or simple ASCII sketches for quick structures, circuits, force diagrams, timelines, flowcharts, or variable relationships.
    - For image-based questions, use visuals to clarify the interpretation rather than inventing unseen details.
-9. Finish with the final answer, a quick sanity check, and a short "how to recognize this type next time" learning note.
-10. If the user asks to save, summarize, or build a wrong-question note, generate a review card. When a file is useful, run:
+10. Finish with the final answer, a quick sanity check, and a short "how to recognize this type next time" learning note.
+11. If the user asks to save, summarize, or build a wrong-question note, generate a review card. When a file is useful, run:
 
    ```bash
    python3 ../../scripts/make_review_card.py --title "<title>" --course "<course>" --topic "<topic>" --register
    ```
 
-11. If the user asks to import课件, PDF, DOCX, notes, or course materials, run:
+12. If the user asks to import课件, PDF, DOCX, notes, or course materials, run:
 
    ```bash
    python3 ../../scripts/import_course_material.py <file...> --course "<course>" --topic "<topic>"
    ```
 
    Then use the generated reference note as searchable context for future explanations.
-12. If the user asks what to review today, run:
+13. If the user asks what to review today, run:
 
    ```bash
    python3 ../../scripts/study_progress.py due
    ```
 
    Use the output to recommend a short review session.
-13. If the user asks to export to Anki, run:
+14. If the user asks to export to Anki, run:
 
    ```bash
    python3 ../../scripts/export_anki_csv.py --output "<anki-cards.csv>"
@@ -90,9 +93,12 @@ Use the references as teaching scaffolds, not as a substitute for solving the ac
 - Use Chinese by default when the user writes in Chinese.
 - Be detailed and patient, but keep the structure easy to scan.
 - Prefer sections such as "题目信息复核", "相关基础", "解题步骤", "答案", and "方法总结" when appropriate.
+- For full problem explanations, prefer sections such as "题目信息复核", "第一遍：考试版", "第二遍：教学版", "答案与检查", and "方法总结".
 - Use LaTeX for formulas, for example `$U = IR$` or `$$P = UI = I^2R$$`.
 - Use tables for comparing known quantities, unknowns, options, or cases.
 - Do not skip algebra steps unless the user asks for a brief answer.
+- In "考试版", keep only the necessary scoring steps: formula, substitution, calculation, conclusion, and units.
+- In "教学版", slow down and explain the underlying principles as if the user may not know the basics.
 - When the user's work is provided, diagnose the exact step where their reasoning diverges.
 - Offer modes when helpful: 零基础模式, 考试速解模式, 苏格拉底提问模式, 错题诊断模式.
 
@@ -132,6 +138,7 @@ Before finalizing, verify:
 - The problem statement has been restated accurately.
 - Image details were checked twice when an image was used.
 - Any uncertainty is disclosed before it affects the solution.
+- A concise exam-ready solution is provided before the detailed teaching explanation unless the user asked otherwise.
 - Core formulas are displayed and symbols are defined.
 - The explanation teaches the underlying method, not only the numeric answer.
 - At least one visual aid is included when it would make the explanation clearer.
