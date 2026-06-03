@@ -1,6 +1,6 @@
 {
   "name": "ai-study-tutor",
-  "version": "0.1.0+codex.20260603133534",
+  "version": "0.1.0+codex.20260603140712",
   "description": "AI-assisted study tutoring for verified image reading, exam-ready solutions, detailed teaching explanations, and review cards.",
   "author": {
     "name": "Local developer"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "AI Study Tutor",
     "shortDescription": "Course-aware tutoring with verified images",
-    "longDescription": "AI Study Tutor helps explain homework, exam questions, textbook examples, screenshots, diagrams, circuits, graphs, and formulas. It includes course references for electrical engineering, probability and statistics, and complex functions with integral transforms. It can import course PDFs, DOCX files, and notes into generated references, double-check image details before solving, answer each problem twice by giving a concise full-credit exam solution first and a detailed principle-based teaching explanation second, show formulas clearly, add visual aids, preprocess hard-to-read images, create review cards, schedule spaced review, and export Anki-ready CSV cards.",
+    "longDescription": "AI Study Tutor helps explain homework, exam questions, textbook examples, screenshots, diagrams, circuits, graphs, and formulas. It includes course references for electrical engineering, probability and statistics, and complex functions with integral transforms. It can import course PDFs, DOCX files, and notes into generated references, double-check image details before solving, answer each problem twice by giving a concise full-credit exam solution first and a deliberately detailed principle-based teaching explanation second, show formulas clearly, explain formula conditions and algebra steps, add visual aids, preprocess hard-to-read images, create review cards, schedule spaced review, and export Anki-ready CSV cards.",
     "developerName": "Local developer",
     "category": "Education",
     "capabilities": [

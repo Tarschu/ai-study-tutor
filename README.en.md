@@ -77,14 +77,16 @@ The exam pass avoids long conceptual explanations. Its purpose is to show what t
 
 ### Second Pass: Teaching Explanation
 
-The teaching explanation is designed to make the reasoning truly understandable. It slows down and explains:
+The teaching explanation is designed to make the reasoning truly understandable, not merely to make the exam answer longer. It slows down and explains:
 
 1. The prerequisite concepts used in the problem.
 2. What each symbol in the formulas means.
-3. Why the chosen formula or theorem applies.
-4. Each algebraic or logical step.
-5. Helpful diagrams, tables, or analogies when useful.
-6. How to recognize this type of problem next time and what mistakes to avoid.
+3. Where the formula comes from, what conditions it requires, and why those conditions hold here.
+4. Each algebraic or logical step, without skipping important rearrangements, unit conversions, or sign handling.
+5. Why each major step is valid.
+6. Helpful diagrams, tables, or analogies when useful.
+7. The most likely places to misread, choose the wrong formula, or make a calculation mistake.
+8. How to recognize this type of problem next time, what first move to make, and how to check the answer.
 
 This format serves both goals: learning how to earn points on an exam and understanding the principles behind the solution.
 

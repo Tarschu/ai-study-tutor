@@ -40,13 +40,18 @@ Use the references as teaching scaffolds, not as a substitute for solving the ac
 6. Calibrate the explanation. If the user's knowledge level is unclear and the problem is nontrivial, ask a short question about their current level; otherwise start from beginner-friendly basics and note assumptions.
 7. Solve with a two-pass answer format by default unless the user asks for only one style:
    - First pass: "考试版". Write a concise, full-credit solution like an exam answer. Include necessary formulas, key substitutions, units, and final result. Do not over-explain; make it clean enough to copy to a paper.
-   - Second pass: "教学版". Explain every important principle step by step. Teach the prerequisite ideas, define symbols, explain why each formula applies, and include visual aids when helpful.
+   - Second pass: "教学版". Give a deliberately detailed teaching explanation. Teach prerequisite ideas, define symbols, state formula conditions, explain why each formula applies, show every meaningful algebra/calculation step, point out common mistakes, and include visual aids when helpful.
 8. In the teaching pass:
-   - Explain the relevant concept before using it.
-   - Define every important symbol.
-   - Show formulas in LaTeX.
+   - Start from the user's likely missing prerequisite, not from the final formula.
+   - Explain the relevant concept before using it, including what problem type it solves.
+   - Define every important symbol and state the unit or meaning of each quantity.
+   - Show formulas in LaTeX and explain where they come from or why they are valid in this problem.
+   - State formula applicability conditions, such as independence, steady state, linear circuit assumptions, analytic region, or distribution assumptions when relevant.
    - Substitute values explicitly and keep units attached.
-   - Explain why each step is valid, not only what calculation is performed.
+   - Do not skip algebra: show rearrangement, simplification, sign handling, and unit conversion steps when they affect understanding.
+   - After each major step, add a short "why this step is allowed" explanation.
+   - Point out the most likely mistake at that step, especially if the image or notation could be misread.
+   - End the teaching pass with a compact mental model: what to look for next time and the first move to make.
 9. Include visual support whenever it helps:
    - Use generated images when the user would benefit from a clean conceptual diagram and image generation is available.
    - Use text diagrams, tables, Mermaid, or simple ASCII sketches for quick structures, circuits, force diagrams, timelines, flowcharts, or variable relationships.
@@ -98,7 +103,8 @@ Use the references as teaching scaffolds, not as a substitute for solving the ac
 - Use tables for comparing known quantities, unknowns, options, or cases.
 - Do not skip algebra steps unless the user asks for a brief answer.
 - In "考试版", keep only the necessary scoring steps: formula, substitution, calculation, conclusion, and units.
-- In "教学版", slow down and explain the underlying principles as if the user may not know the basics.
+- In "教学版", be intentionally detailed. The teaching pass should not be a slightly longer version of the exam pass; it must teach prerequisites, formula meaning, applicability conditions, algebra details, units, signs, and common mistakes.
+- If the teaching explanation becomes long, organize it into small subsections such as "先理解概念", "为什么用这个公式", "逐步推导", "容易错在哪里", and "怎么检查".
 - When the user's work is provided, diagnose the exact step where their reasoning diverges.
 - Offer modes when helpful: 零基础模式, 考试速解模式, 苏格拉底提问模式, 错题诊断模式.
 
@@ -139,6 +145,7 @@ Before finalizing, verify:
 - Image details were checked twice when an image was used.
 - Any uncertainty is disclosed before it affects the solution.
 - A concise exam-ready solution is provided before the detailed teaching explanation unless the user asked otherwise.
+- The second pass is detailed enough for a beginner to follow without needing to infer missing algebra, formula conditions, or symbol meanings.
 - Core formulas are displayed and symbols are defined.
 - The explanation teaches the underlying method, not only the numeric answer.
 - At least one visual aid is included when it would make the explanation clearer.

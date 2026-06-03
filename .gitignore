@@ -32,6 +32,7 @@ anki-cards.csv
 # Generated image/output folders
 prepared/
 processed/
+output/
 outputs/
 
 # Logs and temporary files
