@@ -60,6 +60,34 @@ Import this probability lecture note and use it as context for future explanatio
 What should I review today?
 ```
 
+## Two-Pass Format
+
+For problem explanations, the plugin solves the same problem twice by default:
+
+### First Pass: Exam Answer
+
+The exam answer is designed to be concise but full-credit. It is written like a solution you could put on a test paper:
+
+1. State the key formula, theorem, or method.
+2. Substitute the given values.
+3. Keep the necessary calculation steps and units.
+4. Give a clear final conclusion.
+
+The exam pass avoids long conceptual explanations. Its purpose is to show what to write during an exam and which scoring steps should not be skipped.
+
+### Second Pass: Teaching Explanation
+
+The teaching explanation is designed to make the reasoning truly understandable. It slows down and explains:
+
+1. The prerequisite concepts used in the problem.
+2. What each symbol in the formulas means.
+3. Why the chosen formula or theorem applies.
+4. Each algebraic or logical step.
+5. Helpful diagrams, tables, or analogies when useful.
+6. How to recognize this type of problem next time and what mistakes to avoid.
+
+This format serves both goals: learning how to earn points on an exam and understanding the principles behind the solution.
+
 ## Learning Loop
 
 ```mermaid
