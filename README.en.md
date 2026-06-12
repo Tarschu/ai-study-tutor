@@ -31,7 +31,7 @@ This repository is a Codex plugin. For local development, place it under your lo
 If using the personal marketplace flow used by this project:
 
 ```bash
-codex plugin add ai-study-tutor@migrated-claude-plugins
+codex plugin add ai-study-tutor@tarsgo-plugins
 ```
 
 After installing or updating the plugin, start a new Codex thread so the latest skill instructions and scripts are loaded.
@@ -283,7 +283,7 @@ Update the local plugin cachebuster after changes:
 
 ```bash
 python3 ~/.codex/skills/.system/plugin-creator/scripts/update_plugin_cachebuster.py .
-codex plugin add ai-study-tutor@migrated-claude-plugins
+codex plugin add ai-study-tutor@tarsgo-plugins
 ```
 
 ## License
